@@ -1,0 +1,23 @@
+.popup__filed {
+  min-width: 238px;
+  padding: 0;
+  min-height: 27px;
+  border: 0px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 32px;
+  color: #000000;
+}
+
+.popup__filed:focus {
+  outline-style: none;
+}
+
+@media screen and (max-width: 768px) {
+  .popup__filed:nth-child(1) {
+    margin-bottom: 23px;
+  }
+}

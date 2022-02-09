@@ -1,0 +1,22 @@
+.header__navigation-button {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: right;
+  color: #a9a9a9;
+  text-decoration: none;
+  height: 22px;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+  margin-left: 24px;
+}
+
+@media screen and (max-width: 767px) {
+  .header__navigation-button {
+    margin: 18px 0 40px;
+  }
+}

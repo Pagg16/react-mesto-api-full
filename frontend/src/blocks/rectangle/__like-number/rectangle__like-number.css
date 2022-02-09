@@ -1,0 +1,12 @@
+.rectangle__like-number {
+  width: 10px;
+  height: 13px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  color: #000000;
+  margin: 3px auto 0;
+}

@@ -1,0 +1,9 @@
+.header__active-burger {
+  padding-top: 170px;
+}
+
+@media screen and (min-width: 767px) {
+  .header__active-burger {
+    padding-top: 45px;
+  }
+}

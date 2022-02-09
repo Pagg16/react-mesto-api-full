@@ -1,0 +1,6 @@
+@media screen and (max-width: 767px) {
+  .header__navigation_link {
+    margin: 6px 0 0;
+    padding: 0 27px 0 0;
+  }
+}

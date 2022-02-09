@@ -1,0 +1,10 @@
+.header__email-text {
+  display: flex;
+  margin-top: 6px;
+}
+
+@media screen and (max-width: 767px) {
+  .header__email-text {
+    display: none;
+  }
+}

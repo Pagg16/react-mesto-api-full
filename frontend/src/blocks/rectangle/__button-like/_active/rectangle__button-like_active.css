@@ -1,0 +1,5 @@
+.rectangle__button-like_active {
+    transition: 0.5s;
+    background: url(../../../../images/active-heart.svg) center center / 22px 19px
+      no-repeat;
+  }

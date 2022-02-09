@@ -1,0 +1,7 @@
+.element__button-image-open {
+  padding: 0;
+  border: 0;
+  position: absolute;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+}

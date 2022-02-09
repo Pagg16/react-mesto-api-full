@@ -1,0 +1,15 @@
+.rectangle__button-like {
+  width: 22px;
+  height: 19px;
+  background: url(../../../images/rectangle-image.svg) center center / 22px 19px
+    no-repeat;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.rectangle__button-like:hover {
+  transition: 0.5s;
+  opacity: 0.5;
+}
+

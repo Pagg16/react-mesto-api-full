@@ -1,0 +1,23 @@
+.register__filed {
+  display: block;
+  min-width: 358px;
+  padding: 0;
+  min-height: 27px;
+  border: 0px;
+  border-bottom: 2px solid #cccccc;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  background-color: rgb(0, 0, 0, 1);
+  outline: none;
+}
+
+@media screen and (max-width: 767px) {
+  .register__filed {
+    min-width: 260px;
+    margin: 0 auto 0;
+  }
+}

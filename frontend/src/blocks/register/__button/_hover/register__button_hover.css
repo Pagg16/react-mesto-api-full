@@ -1,0 +1,5 @@
+.register__button_hover:hover {
+  transition: 0.3s;
+  opacity: 0.85;
+  cursor: pointer;
+}

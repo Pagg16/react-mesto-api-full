@@ -1,0 +1,6 @@
+.header__button-burger_active {
+  transform: rotate(360deg);
+  background: url("../../../../images/Close-Icon.svg") center center / 20px 20px
+    no-repeat;
+  transition: all 0.3s;
+}

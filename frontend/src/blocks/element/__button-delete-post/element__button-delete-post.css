@@ -1,0 +1,16 @@
+.element__button-delete-post {
+  width: 18px;
+  height: 19.3px;
+  position: absolute;
+  top: 18px;
+  left: 249px;
+  background: url(../../../images/basket-icon.svg) center center / 18px 19.3px;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  display: none;
+}
+
+.element__button-delete-post:hover {
+  opacity: 0.6;
+}
