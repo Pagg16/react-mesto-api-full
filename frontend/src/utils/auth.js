@@ -1,13 +1,11 @@
-export const BASE_URL = "https://auth.nomoreparties.co";
+const BASE_URL = "https://api.pashoki.students.nomoredomains.xyz";
 
-//email: "Onepagg@yandex.ru"
-//_id: "61b4cc6496bdf2001aa95c8e"
+// export const BASE_URL = "http://localhost:2000";
 
 export function register(email, password) {
   return fetch(`${BASE_URL}/signup`, {
     method: "POST",
     headers: {
-      Accept: "application/json",
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
@@ -17,7 +15,6 @@ export function authorize(email, password) {
   return fetch(`${BASE_URL}/signin`, {
     method: "POST",
     headers: {
-      Accept: "application/json",
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
@@ -27,7 +24,6 @@ export function checkToken(token) {
   return fetch(`${BASE_URL}/users/me`, {
     method: "GET",
     headers: {
-      Accept: "application/json",
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },

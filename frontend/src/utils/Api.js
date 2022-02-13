@@ -4,11 +4,21 @@ class Api {
     this._headers = headers;
   }
 
+  //Объединение запросов=================================================================================================================
+  getPageInfo(token) {
+    this._token = token;
+
+    return Promise.all([this.getinfouser(), this.getInitialCards()]);
+  }
+
   //Карточки======================================================================================================================
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       method: "GET",
-      headers: this._headers,
+      headers: {
+        Authorization: `Bearer ${this._token}`,
+        "Content-Type": "application/json",
+      },
     }).then((res) => {
       return this._responseFromServer(res);
     });
@@ -17,7 +27,10 @@ class Api {
   sendingCardServer(data) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
-      headers: this._headers,
+      headers: {
+        Authorization: `Bearer ${this._token}`,
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(data),
     }).then((res) => {
       return this._responseFromServer(res);
@@ -25,22 +38,28 @@ class Api {
   }
 
   cardLikeLink(id, isLiked) {
-    if(isLiked) {
-    return fetch(`${this._baseUrl}/cards/likes/${id}`, {
-      method: "PUT",
-      headers: this._headers,
-    }).then((res) => {
-      return this._responseFromServer(res);
-    });
-  } else {
-    return this.cardDelLikeLink(id);
-  }
+    if (isLiked) {
+      return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${this._token}`,
+          "Content-Type": "application/json",
+        },
+      }).then((res) => {
+        return this._responseFromServer(res);
+      });
+    } else {
+      return this.cardDelLikeLink(id);
+    }
   }
 
   cardDelLikeLink(id) {
-    return fetch(`${this._baseUrl}/cards/likes/${id}`, {
+    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: "DELETE",
-      headers: this._headers,
+      headers: {
+        Authorization: `Bearer ${this._token}`,
+        "Content-Type": "application/json",
+      },
     }).then((res) => {
       return this._responseFromServer(res);
     });
@@ -49,7 +68,10 @@ class Api {
   cardDelLink(id) {
     return fetch(`${this._baseUrl}/cards/${id}`, {
       method: "DELETE",
-      headers: this._headers,
+      headers: {
+        Authorization: `Bearer ${this._token}`,
+        "Content-Type": "application/json",
+      },
     }).then((res) => {
       return this._responseFromServer(res);
     });
@@ -59,7 +81,10 @@ class Api {
   getinfouser() {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "GET",
-      headers: this._headers,
+      headers: {
+        Authorization: `Bearer ${this._token}`,
+        "Content-Type": "application/json",
+      },
     }).then((res) => {
       return this._responseFromServer(res);
     });
@@ -68,7 +93,10 @@ class Api {
   getinfouserDispatch(data) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
-      headers: this._headers,
+      headers: {
+        Authorization: `Bearer ${this._token}`,
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         name: data.name,
         about: data.about,
@@ -81,7 +109,10 @@ class Api {
   dispatchAvatarUser(data) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
-      headers: this._headers,
+      headers: {
+        Authorization: `Bearer ${this._token}`,
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         avatar: data.avatar,
       }),
@@ -102,11 +133,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-29",
-  headers: {
-    authorization: "056e8062-0d04-4d77-b94c-9ff9ca769110",
-    "Content-Type": "application/json",
-  },
+  baseUrl: "https://api.pashoki.students.nomoredomains.xyz",
 });
 
 export default api;

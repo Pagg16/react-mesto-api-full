@@ -1,5 +1,5 @@
 {
-  "homepage": "https://Pagg16.github.io/react-mesto-auth",
+  "homepage": "http://pashokifront.nomoredomains.work/",
   "name": "mesto-react",
   "version": "0.1.0",
   "private": true,
@@ -20,7 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "npm run build && scp -r ./build/* mesto@84.252.128.250:/home/mesto/mesto-frontend"
   },
   "eslintConfig": {
     "extends": [

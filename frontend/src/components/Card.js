@@ -19,7 +19,7 @@ function Card(props) {
   const isOwn = props.card.owner._id === dataUser._id;
 
   // Определяем, есть ли у карточки лайк, поставленный текущим пользователем
-  const isLiked = props.card.likes.some((i) => i._id === dataUser._id);
+  const isLiked = props.card.likes.some((i) => i === dataUser._id);
 
   // Создаём переменную, которую после зададим в `className` для кнопки лайка
   const cardLikeButtonClassName = `rectangle__button-like_active`;

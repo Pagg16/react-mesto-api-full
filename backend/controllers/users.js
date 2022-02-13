@@ -24,9 +24,9 @@ module.exports.createUser = (req, res, next) => {
       password: hash,
     })
       .then((user) => {
-        const userNoPassword = JSON.parse(JSON.stringify(user));
-        delete userNoPassword.password;
-        res.status(200).send({ userNoPassword });
+        const data = JSON.parse(JSON.stringify(user));
+        delete data.password;
+        res.status(200).send({ data });
       }))
     .catch((err) => {
       if (err.name === 'ValidationError') {

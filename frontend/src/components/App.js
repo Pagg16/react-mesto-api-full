@@ -65,26 +65,28 @@ function App(props) {
     auth.checkToken(localStorage.getItem("jwt")).then((res) => {
       if (res) {
         setLoggedIn(true);
-        setEmail(res.data.email);
+        setEmail(res.email);
+        getData();
         props.history.push("/mainpart");
       }
     });
   }
 
   //загрузка данных с сервера
-  React.useEffect(() => {
-    Promise.all([api.getInitialCards(), api.getinfouser()])
-      .then(([cardList, userInfo]) => {
+  function getData() {
+    api
+      .getPageInfo(localStorage.getItem("jwt"))
+      .then(([userInfo, cardList]) => {
         currentUserSet(userInfo);
         changeCards(cardList);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }
 
   //установка лайка
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
 
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api
@@ -218,16 +220,19 @@ function App(props) {
         <Switch>
           <Route path="/sign-in">
             <Login
+              getData={getData}
               setIsFailureRegistrationOpen={setIsFailureRegistrationOpen}
               checkToken={checkToken}
             />
           </Route>
           <Route path="/sign-up">
             <Register
+              getData={getData}
               setIsSuccessfulRegistrationOpen={setIsSuccessfulRegistrationOpen}
               setIsFailureRegistrationOpen={setIsFailureRegistrationOpen}
               setLoggedIn={setLoggedIn}
               setEmail={setEmail}
+              checkToken={checkToken}
             />
           </Route>
           <ProtectedRoute

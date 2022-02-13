@@ -7,26 +7,23 @@ import { useFormAndValidation } from "../hooks/useFormAndValidation";
 function Register(props) {
   const { values, handleChange, errors, isValid } = useFormAndValidation();
 
-  function handleSubmit() {
-    auth
-      .register(values.inputOne, values.inputTwo)
-      .then((res) => {
+  async function handleSubmit() {
+    try {
+      await auth.register(values.inputOne, values.inputTwo).then((res) => {
         if (res.statusCode !== 400) {
           props.setEmail(values.inputOne);
-          props.setLoggedIn(true);
           props.setIsSuccessfulRegistrationOpen(true);
-          props.history.push("/mainpart");
-          // setTimeout(() => {
-          //   auth.authorize(values.inputOne, values.inputTwo).then((res) => {
-          //     localStorage.setItem("jwt", res.token);
-          //   });
-          // }, 500);
         }
-      })
-      .catch((err) => {
-        console.log(err);
-        props.setIsFailureRegistrationOpen(true);
       });
+
+      await auth.authorize(values.inputOne, values.inputTwo).then((res) => {
+        localStorage.setItem("jwt", res.token);
+        props.checkToken();
+      });
+    } catch (err) {
+      console.log(err);
+      props.setIsFailureRegistrationOpen(true);
+    }
   }
 
   return (
