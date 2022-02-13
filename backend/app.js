@@ -10,7 +10,7 @@ const NotFound = require('./errors/not-found');
 const cors = require('./middlewares/cors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const { PORT = 3000, DB_URL = 'mongodb+srv://Pagg16:Pagg16@cluster0.edkvs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' } = process.env;
+const { PORT = 3000, DB_URL = 'mongodb://localhost:27017' } = process.env;
 
 const app = express();
 
