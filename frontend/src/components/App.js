@@ -106,7 +106,7 @@ function App(props) {
     api
       .sendingCardServer(card)
       .then((addCard) => {
-        changeCards([...cards, addCard]);
+        changeCards([addCard, ...cards]);
         setIsAddPlaceClick(false);
         cleaning();
       })
