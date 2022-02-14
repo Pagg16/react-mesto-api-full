@@ -16,7 +16,7 @@ function Card(props) {
     props.handlePopupDeletingClick(props.card);
   }
 
-  const isOwn = props.card.owner._id === dataUser._id;
+  const isOwn = props.card.owner === dataUser._id;
 
   // Определяем, есть ли у карточки лайк, поставленный текущим пользователем
   const isLiked = props.card.likes.some((i) => i === dataUser._id);

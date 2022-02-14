@@ -48,7 +48,7 @@ function Main({
         />
       </section>
       <section className="elements">
-        {cards.map((card) => (
+        {cards.reverse().map((card) => (
           <Card
             handlePopupDeletingClick={handlePopupDeletingClick}
             key={card._id}
