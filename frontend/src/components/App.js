@@ -78,13 +78,6 @@ function App(props) {
       .getPageInfo(localStorage.getItem("jwt"))
       .then(([userInfo, cardList]) => {
         currentUserSet(userInfo);
-
-        let arrReverse = [];
-
-        for (let i = 0; i < cardList.length; i++) {
-          arrReverse[arrReverse.length] = cardList[i];
-        }
-
         changeCards(cardList);
       })
       .catch((err) => console.log(err));
@@ -113,7 +106,7 @@ function App(props) {
     api
       .sendingCardServer(card)
       .then((addCard) => {
-        changeCards([addCard, ...cards]);
+        changeCards([...cards, addCard]);
         setIsAddPlaceClick(false);
         cleaning();
       })
