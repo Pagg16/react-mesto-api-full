@@ -78,7 +78,7 @@ function App(props) {
       .getPageInfo(localStorage.getItem("jwt"))
       .then(([userInfo, cardList]) => {
         currentUserSet(userInfo);
-        changeCards(cardList.reverse());
+        changeCards(cardList);
       })
       .catch((err) => console.log(err));
   }
