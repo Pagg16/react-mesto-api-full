@@ -76,7 +76,7 @@ module.exports.dislikeCard = (req, res, next) => {
       { $pull: { likes: req.user._id } },
       { new: true },
     )
-    .orFail(() => () => new NotFound('Пользователь с указанным id не существует'))
+    .orFail(() => new NotFound('Пользователь с указанным id не существует'))
     .then((card) => res.status(200).send(card))
     .catch((err) => {
       if (err.name === 'CastError') {
